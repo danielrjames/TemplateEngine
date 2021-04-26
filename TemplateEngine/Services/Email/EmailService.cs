@@ -33,14 +33,19 @@ namespace TemplateEngine.Services.Email
                     To = recipient.Email,
                     Subject = "Default email...",
                     Template = template,
-                    TemplateModel = new DefaultTemplate
+                    TemplateModel = new DefaultModel
                     {
                         Name = recipient.Name,
                         Url = "https://google.com"
                     }
                 };
 
-                ExecuteMessage(msg); // send email to recipient
+                var sendResult = ExecuteMessage(msg); // always true for demo
+
+                if (!sendResult)
+                {
+                    // add to log with recipient info
+                }
             }
         }
 
@@ -62,7 +67,7 @@ namespace TemplateEngine.Services.Email
                     To = recipient.Email,
                     Subject = "About your company...",
                     Template = template,
-                    TemplateModel = new CompanyTemplate
+                    TemplateModel = new CompanyModel
                     {
                         Name = recipient.Name,
                         Company = recipient.Company

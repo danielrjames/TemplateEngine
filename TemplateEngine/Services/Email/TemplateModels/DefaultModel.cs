@@ -2,11 +2,11 @@
 
 namespace TemplateEngine.Services.Email.TemplateModels
 {
-    public class CompanyTemplate
+    public class DefaultModel
     {
         [JsonProperty("name")]
         public string Name { get; set; }
-        [JsonProperty("company")]
-        public string Company { get; set; }
+        [JsonProperty("url")]
+        public string Url { get; set; }
     }
 }
